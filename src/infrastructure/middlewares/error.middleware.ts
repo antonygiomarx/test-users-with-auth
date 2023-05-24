@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { StatusCodes as HttpStatusCode } from "http-status-codes";
-import { UserAlreadyExistsException } from "../../domain/exceptions/users/user-not-found.exception";
+import { UserAlreadyExistsException } from "../../domain/exceptions/users";
 
 export class ErrorMiddleware {
   handle(error: Error, _: Request, res: Response) {
