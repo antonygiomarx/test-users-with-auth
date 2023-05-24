@@ -3,9 +3,28 @@
   "version": "1.0.0",
   "description": "Prueba Técnica Cochez - Backend - Antony Hernández",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "Prueba",
+    "Técnica",
+    "Cochez",
+    "Backend",
+    "Antony",
+    "Hernández"
+  ],
+  "author": "Antony Hernández",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
