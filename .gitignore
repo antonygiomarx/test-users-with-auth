@@ -1,0 +1,17 @@
+# IDE
+.idea
+
+# Compiled Files
+*.class
+
+# Log Files
+*.log
+
+# Environment Files
+.env
+
+# node_modules
+node_modules
+
+# Coverage directory
+coverage
