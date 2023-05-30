@@ -1,20 +1,31 @@
-FROM node:16.14.0-alpine3.15
+FROM node:20-alpine3.16 as builder
 
-# Create app directory
+WORKDIR /app
 
-WORKDIR /usr/src/app
-
-# Install app dependencies
-
-COPY dist/ ./
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install
 
-# Bundle app source
+COPY . .
+
+RUN npm run build
+
+
+
+FROM node:20-alpine3.16  as production
+
+ARG NODE_ENV=production
+
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm install --only=production
 
 COPY . .
 
-EXPOSE 3000
+COPY --from=builder /app/dist ./dist
 
-CMD ["npm", "start"]
+CMD ["node", "dist/src/index"]
